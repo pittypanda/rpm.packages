@@ -3,7 +3,7 @@ Version:        1.7.3
 Release:        5%{?dist}
 Summary:        Nginx Web Server
 
-Group:          C
+Group:          Web Server
 License:        BSD
 URL:            http://nginx.org
 Source0:        http://nginx.org/download/%{name}-%{version}.tar.gz
