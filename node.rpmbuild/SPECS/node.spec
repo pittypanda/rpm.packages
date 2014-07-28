@@ -33,10 +33,12 @@ make install DESTDIR=%{buildroot}
 
 %post
 cd %{_bindir}; ln -s %{node_dir}/bin/npm
+cd %{_bindir}; ln -s %{node_dir}/bin/node
 
 %preun
 if [ $1 = 0 ]; then
   rm -f %{_bindir}/npm
+  rm -f %{_bindir}/node
 fi
 
 
