@@ -10,7 +10,7 @@ Source0:        http://nodejs.org/dist/v0.10.29/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc, gcc-c++
 
-%define         _topdir   /home/stephane/work/packages/%{name}.rpmbuild
+%define         _topdir   %{getenv:HOME}/work/packages/%{name}.rpmbuild
 %define         node_dir  /usr/local/%{name}
 
 %description

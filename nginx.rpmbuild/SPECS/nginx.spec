@@ -11,7 +11,7 @@ Source0:        http://nginx.org/download/%{name}-%{version}.tar.gz
 BuildRequires:  gcc, pcre-devel, zlib-devel, openssl-devel
 Requires:       pcre, openssl
 
-%define         _topdir    /home/stephane/work/packages/%{name}.rpmbuild
+%define         _topdir    %{getenv:HOME}/work/packages/%{name}.rpmbuild
 %define         pid_file   %{_localstatedir}/run/%{name}.pid
 %define         nginx_dir  /usr/local/%{name}
 

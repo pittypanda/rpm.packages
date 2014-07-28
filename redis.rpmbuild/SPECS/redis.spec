@@ -10,7 +10,7 @@ Source0:        http://download.redis.io/releases/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc, tcl
 
-%define         _topdir   /home/stephane/work/packages/%{name}.rpmbuild
+%define         _topdir   %{getenv:HOME}/work/packages/%{name}.rpmbuild
 %define         pid_dir   %{_localstatedir}/run/%{name}
 %define         pid_file  %{pid_dir}/%{name}.pid
 %define         redis_dir /usr/local/%{name}
