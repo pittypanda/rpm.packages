@@ -3,7 +3,7 @@ Version:        v0.10.29
 Release:        1%{?dist}
 Summary:        Node.js
 
-Group:          C
+Group:          Node.js
 License:        BSD
 URL:            http://nodejs.org
 Source0:        http://nodejs.org/dist/v0.10.29/%{name}-%{version}.tar.gz

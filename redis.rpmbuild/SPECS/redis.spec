@@ -3,7 +3,7 @@ Version:        2.8.13
 Release:        3%{?dist}
 Summary:        Redis Database
 
-Group:          C
+Group:          Redis Database
 License:        BSD
 URL:            http://redis.io
 Source0:        http://download.redis.io/releases/%{name}-%{version}.tar.gz
