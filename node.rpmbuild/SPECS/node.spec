@@ -49,6 +49,7 @@ fi
 %files
 %defattr(-,root,root,-)
 %doc
+%dir %attr(0755,%{name},%{name}) %{node_dir}
 %{node_dir}/*
 
 

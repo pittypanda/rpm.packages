@@ -190,6 +190,7 @@ fi
 %files
 %defattr(-,%{name},%{name},-)
 %doc
+%dir %attr(0755,%{name},%{name}) %{nginx_dir}
 %{nginx_dir}/*
 %{_sysconfdir}/logrotate.d/%{name}
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/%{name}.conf
