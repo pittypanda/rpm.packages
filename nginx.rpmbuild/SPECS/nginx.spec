@@ -197,7 +197,7 @@ fi
 %dir %attr(0755,%{name},%{name}) %{nginx_dir}
 %{nginx_dir}/*
 %{_sysconfdir}/logrotate.d/%{name}
-%attr(0644,root,root) %{_sysconfdir}/%{name}.conf
+%attr(0644,root,root) %{_sysconfdir}/mime.types
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/%{name}.conf
 %attr(0755,root,root) %{_sysconfdir}/init.d/%{name}
 
