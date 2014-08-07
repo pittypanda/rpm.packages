@@ -158,8 +158,8 @@ make install DESTDIR=%{buildroot}
 %{__install} -Dp -m 0755 %{name}.sysv %{buildroot}%{_sysconfdir}/init.d/%{name}
 %{__install} -p -d -m 0755 %{buildroot}%{nginx_dir}/work
 
-#%{__mv} %{buildroot}%{nginx_dir}/conf/nginx.conf %{buildroot}%{_sysconfdir}/%{name}.conf
 mv %{buildroot}%{nginx_dir}/conf/nginx.conf %{buildroot}%{_sysconfdir}/%{name}.conf
+mv %{buildroot}%{nginx_dir}/conf/mime.types %{buildroot}%{_sysconfdir}/mime.types
 
 
 %pre
@@ -171,6 +171,7 @@ exit 0
 %post
 /sbin/chkconfig --add %{name}
 cd %{nginx_dir}/conf; ln -s %{_sysconfdir}/%{name}.conf
+cd %{nginx_dir}/conf; ln -s %{_sysconfdir}/mime.types
 
 %preun
 if [ $1 = 0 ]; then
@@ -179,6 +180,9 @@ if [ $1 = 0 ]; then
 
   if [ -h "%{nginx_dir}/conf/%{name}.conf" ]; then
     rm -f %{nginx_dir}/conf/%{name}.conf
+  fi
+  if [ -h "%{nginx_dir}/conf/mime.types" ]; then
+    rm -f %{nginx_dir}/conf/mime.types
   fi
 fi
 
@@ -193,6 +197,7 @@ fi
 %dir %attr(0755,%{name},%{name}) %{nginx_dir}
 %{nginx_dir}/*
 %{_sysconfdir}/logrotate.d/%{name}
+%attr(0644,root,root) %{_sysconfdir}/%{name}.conf
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/%{name}.conf
 %attr(0755,root,root) %{_sysconfdir}/init.d/%{name}
 
