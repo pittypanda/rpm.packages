@@ -159,7 +159,7 @@ fi
 %doc
 %dir %attr(0755,%{name},%{name}) %{redis_dir}
 %{redis_dir}/*
-%{_sysconfdir}/logrotate.d/%{name}
+%attr(0644,root,root) %{_sysconfdir}/logrotate.d/%{name}
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/%{name}.conf
 %attr(0755,root,root) %{_sysconfdir}/init.d/%{name}
 
