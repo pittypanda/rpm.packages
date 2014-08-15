@@ -178,6 +178,10 @@ if [ $1 = 0 ]; then
   /sbin/service %{name} stop > /dev/null 2>&1
   /sbin/chkconfig --del %{name}
 
+  if [ -e "%{nginx_dir}/work" ]; then
+    rm -rf %{nginx_dir}/work
+  fi
+
   if [ -h "%{nginx_dir}/conf/%{name}.conf" ]; then
     rm -f %{nginx_dir}/conf/%{name}.conf
   fi
@@ -196,8 +200,8 @@ fi
 %doc
 %dir %attr(0755,%{name},%{name}) %{nginx_dir}
 %{nginx_dir}/*
-%{_sysconfdir}/logrotate.d/%{name}
 %attr(0644,root,root) %{_sysconfdir}/mime.types
+%attr(0644,root,root) %{_sysconfdir}/logrotate.d/%{name}
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/%{name}.conf
 %attr(0755,root,root) %{_sysconfdir}/init.d/%{name}
 
